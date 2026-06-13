@@ -1,6 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
-#include <dt-bindings/spi/spi.h>
 #include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
@@ -54,8 +53,6 @@
         status = "okay";
 
         spi-max-frequency = <2000000>;
-        spi-lsb-first;
-        duplex = <SPI_HALF_DUPLEX>;
 
         motion-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
