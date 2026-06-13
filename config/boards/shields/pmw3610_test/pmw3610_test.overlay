@@ -1,0 +1,68 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/spi/spi.h>
+#include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios
+            = <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+};
+
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <
+                NRF_PSEL(SPIM_SCK, 1, 11)
+                NRF_PSEL(SPIM_MOSI, 1, 13)
+                NRF_PSEL(SPIM_MISO, 1, 13)
+            >;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <
+                NRF_PSEL(SPIM_SCK, 1, 11)
+                NRF_PSEL(SPIM_MOSI, 1, 13)
+                NRF_PSEL(SPIM_MISO, 1, 13)
+            >;
+            low-power-enable;
+        };
+    };
+};
+
+&spi1 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+
+    pmw3610: pmw3610@0 {
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        status = "okay";
+
+        spi-max-frequency = <2000000>;
+        spi-lsb-first;
+        duplex = <SPI_HALF_DUPLEX>;
+
+        motion-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+
+        zephyr,axis-x = <INPUT_REL_X>;
+        zephyr,axis-y = <INPUT_REL_Y>;
+
+        res-cpi = <800>;
+        smart-mode;
+    };
+};
