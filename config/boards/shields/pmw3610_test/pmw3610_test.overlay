@@ -17,7 +17,7 @@
     pmw3610_listener {
     compatible = "zmk,input-listener";
     device = <&pmw3610>;
-    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>;
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>;
 };
 
 &pinctrl {
