@@ -14,8 +14,9 @@
     };
 
     pmw3610_listener {
-    compatible = "zmk,input-listener";
-    device = <&pmw3610>;
+        compatible = "zmk,input-listener";
+        device = <&pmw3610>;
+    };
 };
 
 &pinctrl {
