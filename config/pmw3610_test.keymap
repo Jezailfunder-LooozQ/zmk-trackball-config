@@ -14,5 +14,14 @@
                 &kp ESC    &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp DEL
             >;
         };
+
+        mouse_layer {
+            bindings = <
+                &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &mkp LCLK &mkp RCLK &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans
+                &trans    &trans    &trans    &trans    &trans    &trans
+            >;
+        };
     };
 };
