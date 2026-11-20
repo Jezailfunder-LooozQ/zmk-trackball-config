@@ -1,13 +1,20 @@
+
 manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: kaievns
+      url-base: https://github.com/kaievns
 
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+
+    - name: zmk-trackball-processors
+      remote: kaievns
+      revision: main
 
   self:
     path: config
