@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 #include <input/processors/response_curve.dtsi>
+#include <input/processors/angle.dtsi>
 #include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
@@ -51,6 +52,7 @@
             <&zip_xy_transform
                 (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>,
             <&zip_temp_layer 1 2000>,
+            <&zip_angle 10>,
             <&zip_response_curve 2>;
     };
 };
