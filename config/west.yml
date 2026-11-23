@@ -22,7 +22,7 @@ manifest:
 
     - name: zmk-angle-processor
       remote: jezailfunder
-      revision: main
+      revision: vertical-snap
 
   self:
     path: config
