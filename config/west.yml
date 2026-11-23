@@ -3,8 +3,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+
     - name: kaievns
       url-base: https://github.com/kaievns
+
+    - name: jezailfunder
+      url-base: https://github.com/Jezailfunder-LooozQ
 
   projects:
     - name: zmk
@@ -14,6 +18,10 @@ manifest:
 
     - name: zmk-trackball-processors
       remote: kaievns
+      revision: main
+
+    - name: zmk-angle-processor
+      remote: jezailfunder
       revision: main
 
   self:
